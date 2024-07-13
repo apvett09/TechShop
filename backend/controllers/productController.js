@@ -2,7 +2,7 @@ import asyncHandler from "../middleware/asyncHandler.js";
 import Product from "../models/productModel.js";
 
 // @desc   Fetch all products
-// @route  GET /appi/procuts
+// @route  GET /api/products
 // @access Public
 const getProducts = asyncHandler(async (req, res) => {
   // get all products from the database
@@ -10,8 +10,8 @@ const getProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
-// @desc   Fetch all products
-// @route  GET /appi/procuts
+// @desc   Fetch a product
+// @route  GET /api/products/:id
 // @access Public
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
