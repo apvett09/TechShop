@@ -8,6 +8,7 @@ import { logout } from "../slices/authSlice";
 import logo from "../assets/logo_transparent_ZI2.jpg";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
+import { resetCart } from "../slices/cartSlice";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -22,6 +23,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(resetCart()); // reset cart state so the next user doesnt inherit previous cart
       navigate("/login");
     } catch (err) {
       console.log(err);
