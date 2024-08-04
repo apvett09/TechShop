@@ -9,6 +9,7 @@ import logo from "../assets/logo_transparent_ZI2.jpg";
 import { useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { resetCart } from "../slices/cartSlice";
+import "../assets/styles/MyNavBar.css";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -32,7 +33,13 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
+      <Navbar
+        className="custom-navbar"
+        bg="dark"
+        variant="dark"
+        expand="md"
+        collapseOnSelect
+      >
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
